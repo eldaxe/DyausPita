@@ -60,11 +60,11 @@ constexpr GameProfile kProfile{
 
     // Provisional assumption from the previous profile; verify with a network trace.
     .adhoc_product_code = "NPJH50832",
+    .patch_loaded_image = enable_atomic_caller_trace,
 
     .frame_vblanks = 2,
     .system_language = 0,
     .confirm_button = 0,
-    .patch_loaded_image = enable_atomic_caller_trace,
 };
 
 } // namespace
