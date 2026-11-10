@@ -1,0 +1,17 @@
+/out/
+/build/
+/cmake-build-*/
+/portablekit/out/
+/portablekit/build/
+/game/
+/profiles/*/game/
+/generated/
+/generated-variants/
+/overlays/
+/analysis/
+/*.iso
+/*.cso
+*.elf
+*.sprx
+*.prx
+*.bin
