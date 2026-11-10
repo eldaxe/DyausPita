@@ -1,7 +1,5 @@
 // God Eater 2 (NPJH50832, Japanese release, APP_VER 01.30).
-// Values below were recovered from the previous ge2native project archive.
-// Provisional: adhoc_product_code is assumed to match DISC_ID until a
-// network trace confirms the value. PRX module bases are not overlay slots.
+// Recovered from the previous ge2native project archive.
 #include "profile.hpp"
 
 #include <array>
@@ -41,7 +39,7 @@ constexpr GameProfile kProfile{
     .save_game_name = "NPJH50832data",
     .save_folders = kSaveFolders,
 
-    // Provisional: assumed to be the disc ID; verify with an ad hoc trace.
+    // Provisional assumption from the previous profile; verify with a network trace.
     .adhoc_product_code = "NPJH50832",
 
     .frame_vblanks = 2,
