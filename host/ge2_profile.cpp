@@ -52,6 +52,7 @@ constexpr GameProfile kProfile{
     .frame_vblanks = 2,
     .system_language = 0,
     .confirm_button = 0,
+    .interpreter_watch = "0x0894123C",
 };
 
 } // namespace
