@@ -1,0 +1,34 @@
+# library,nid,name
+# God Eater 2 (NPJH50832) imports not named by PortableKit's registry.
+# Names were recovered from the prior PPSSPP HLE registration analysis.
+Kernel_Library,0x37431849,sceKernelTryLockLwMutex_600
+Kernel_Library,0xFA835CDE,sceKernelGetTlsAddr
+ModuleMgrForUser,0xF2D8D1B4,sceKernelLoadModuleNpDrm
+SysMemUserForUser,0x358CA1BB,sceKernelSetCompiledSdkVersion606
+ThreadManForUser,0x18260574,sceKernelReceiveMbx
+ThreadManForUser,0x6652B8CA,sceKernelSetAlarm
+ThreadManForUser,0x7E65B999,sceKernelCancelAlarm
+ThreadManForUser,0x8DAFF657,sceKernelCreateTlspl
+ThreadManForUser,0xA8E8C846,sceKernelReferMbxStatus
+ThreadManForUser,0xBC6FEBC5,sceKernelReferSemaStatus
+sceAtrac3plus,0x231FC6B7,_sceAtracGetContextAddress
+sceAtrac3plus,0x83BF7AFD,sceAtracSetSecondBuffer
+sceAtrac3plus,0xECA32A99,sceAtracIsSecondBufferNeeded
+sceLibFont,0xEE232411,sceFontSetAltCharacterCode
+sceMd5,0x19884A15,sceMd5BlockInit
+sceMd5,0x4876AFFF,sceMd5BlockResult
+sceMd5,0x98E31A9E,sceMd5Digest
+sceMd5,0xA30206C2,sceMd5BlockUpdate
+sceMpeg,0x769BEBB6,sceMpegRingbufferQueryPackNum
+scePower,0xAC32C9CC,scePowerRequestSuspend
+scePspNpDrm_user,0x219EF5CC,sceNpDrmEdataGetDataSize
+scePspNpDrm_user,0x275987D1,sceNpDrmRenameCheck
+sceRtc,0x27F98543,sceRtcFormatRFC3339LocalTime
+sceRtc,0x34885E0D,sceRtcConvertUtcToLocalTime
+sceRtc,0x7D1FBED3,sceRtcSetAlarmTick
+sceSasCore,0x4AA9EAD6,__sceSasSetVoiceATRAC3
+sceSasCore,0x7497EA85,__sceSasConcatenateATRAC3
+sceSasCore,0xF6107F00,__sceSasUnsetATRAC3
+sceUmdUser,0x340B7686,sceUmdGetDiscInfo
+sceUmdUser,0x87533940,sceUmdReplaceProhibit
+sceUmdUser,0xCBE9F02A,sceUmdReplacePermit
