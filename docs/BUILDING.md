@@ -31,11 +31,14 @@ After building PortableKit's `psp_recomp` tool and preparing the decrypted EBOOT
 ```sh
 mkdir -p generated
 psp_recomp game/EBOOT.BIN --auto generated 0x08804000 0x4000
+
+psp_recomp game/layout.bin --auto generated-modules/layout 0x08C00000 0x4000 --prefix ge2_layout
+psp_recomp game/god_g000_Field.sprx --auto generated-modules/field 0x08E00000 0x4000 --prefix ge2_field
 ```
 
 The previous project generated 19,526 functions in 124 non-empty address shards. The uncompressed C++ corpus is about 3.76 GB. It is not stored in this repository and has not yet been compiled/linked as a working game build.
 
-The Layout and Field module corpora are separate. The previous generation used chosen bases `0x08C00000` and `0x08E00000`, but the live loader addresses have not been verified. Do not place these corpora into the main `generated/` directory: PortableKit's current game target discovers that directory as the main executable corpus only. Module integration is a separate task.
+The Layout and Field module corpora are separate and use the `--prefix` option to avoid generated symbol collisions. The previous generation used chosen bases `0x08C00000` and `0x08E00000`, but the live loader addresses have not been verified. Do not place these corpora into the main `generated/` directory: PortableKit's current game target discovers that directory as the main executable corpus only. Module integration is a separate task.
 
 ## Android
 
