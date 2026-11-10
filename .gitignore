@@ -6,6 +6,10 @@
 /game/
 /profiles/*/game/
 /generated/
+/generated-modules/
+/generated-variants/
+/android-res/local/
+
 /generated-variants/
 /overlays/
 /analysis/
