@@ -3,6 +3,7 @@
 #include "profile.hpp"
 
 #include <array>
+#include <cstdlib>
 
 namespace portablekit {
 namespace {
@@ -15,6 +16,17 @@ constexpr std::array<DiscFileAlias, 2> kDiscFileAliases{{
     {"PSP/SAVEDATA/NPJH50832data/DATA.RDP", "PSP_GAME/USRDIR/data.rdp"},
     {"PSP/SAVEDATA/NPJH50832data/PACKAGE.RDP", "PSP_GAME/USRDIR/package.rdp"},
 }};
+
+// Capture the caller registers at the entry of the atomic refcount helper.
+// The interpreter's existing watch facility logs a0/a1/ra before the prologue
+// overwrites ra, which identifies the guest call site without changing code flow.
+void enable_atomic_caller_trace(psprecomp::Runtime &, const psprecomp::Elf32Image &) {
+#if defined(_WIN32)
+    _putenv_s("PSPRECOMP_INTERPRETER_WATCH", "0x0894123C");
+#else
+    setenv("PSPRECOMP_INTERPRETER_WATCH", "0x0894123C", 0);
+#endif
+}
 
 constexpr GameProfile kProfile{
     .app_name = "GodEater2Native",
@@ -52,7 +64,7 @@ constexpr GameProfile kProfile{
     .frame_vblanks = 2,
     .system_language = 0,
     .confirm_button = 0,
-    .interpreter_watch = "0x0894123C",
+    .patch_loaded_image = enable_atomic_caller_trace,
 };
 
 } // namespace
