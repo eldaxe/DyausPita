@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Generate game-derived AOT locally. No game executable or generated C++ is
-# written to Git. Inputs must come from the user's own legally obtained dump.
+# Generate each executable into its own corpus directory. Generated C++ and
+# all game executables are local-only and must never be committed.
 : "${PSP_RECOMP:=psp_recomp}"
 : "${GE2_GAME_DIR:=game}"
 
@@ -14,9 +14,8 @@ mkdir -p generated generated-modules/layout generated-modules/field
 "${PSP_RECOMP}" "${GE2_GAME_DIR}/layout.bin" \
   --auto generated-modules/layout 0x08C00000 0x4000 --prefix ge2_layout
 
-# Supply the offline A0-converted Field PRX as god_g000_Field_a0.prx.
-"${PSP_RECOMP}" "${GE2_GAME_DIR}/god_g000_Field_a0.prx" \
+"${PSP_RECOMP}" "${GE2_GAME_DIR}/god_g000_Field.sprx" \
   --auto generated-modules/field 0x08E00000 0x4000 --prefix ge2_field
 
-echo "AOT generation finished. These module bases are provisional; do not link"
-echo "module corpora until runtime module load addresses and registration are verified."
+echo "AOT generation finished. The Layout and Field bases are provisional."
+echo "Do not register their corpora until the runtime PRX load addresses are verified."
