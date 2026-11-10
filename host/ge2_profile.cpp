@@ -11,6 +11,11 @@ constexpr std::array<SaveFolder, 1> kSaveFolders{{
     {"NPJH50832data", "Save data", true},
 }};
 
+constexpr std::array<DiscFileAlias, 2> kDiscFileAliases{{
+    {"PSP/SAVEDATA/NPJH50832data/DATA.RDP", "PSP_GAME/USRDIR/data.rdp"},
+    {"PSP/SAVEDATA/NPJH50832data/PACKAGE.RDP", "PSP_GAME/USRDIR/package.rdp"},
+}};
+
 constexpr GameProfile kProfile{
     .app_name = "GodEater2Native",
     .project_name = "God Eater 2",
@@ -38,6 +43,8 @@ constexpr GameProfile kProfile{
 
     .save_game_name = "NPJH50832data",
     .save_folders = kSaveFolders,
+    .memory_stick_patch_folder = "PATCH-LUMI",
+    .disc_file_aliases = kDiscFileAliases,
 
     // Provisional assumption from the previous profile; verify with a network trace.
     .adhoc_product_code = "NPJH50832",
