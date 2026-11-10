@@ -44,6 +44,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ninja-build glslang-tools imagemagick librsvg2-bin bc nasm yasm pkg-config
+          # Ubuntu's ImageMagick package may expose the ImageMagick 6 `convert` binary only.
+          sudo ln -sf "$(command -v convert)" /usr/local/bin/magick
 
       - name: Checkout SDL3
         uses: actions/checkout@v4
