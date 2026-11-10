@@ -1,17 +1,9 @@
 #include "profile.hpp"
 
-#include <cstdint>
-
 namespace portablekit {
-namespace {
 
-// These values are deliberately limited to facts established for this title.
-// Save-data folder names, product code, decryption metadata and overlay slots
-// must be read from the user's own dump before enabling installation/gameplay.
-constexpr SaveFolder kSaveFolders[] = {};
-
-} // namespace
-
+// This initial profile intentionally leaves unverified per-disc metadata empty.
+// Fill these from the user's own dump before attempting installation/gameplay.
 const GameProfile &game() {
     static const GameProfile profile{
         .app_name = "DyausPitaNative",
@@ -34,7 +26,7 @@ const GameProfile &game() {
         .boot_path = "disc0:/PSP_GAME/SYSDIR/EBOOT.BIN",
         .overlay_slots = {},
         .save_game_name = "ULJS00560",
-        .save_folders = kSaveFolders,
+        .save_folders = {},
         .adhoc_product_code = "",
         .frame_vblanks = 2u,
         .system_language = 0u,
